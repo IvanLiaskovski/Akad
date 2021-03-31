@@ -1,4 +1,4 @@
-const { src, dest, watch, serial, parallel } = require("gulp");
+const { src, dest, watch, series, parallel } = require("gulp");
 const fileInclude = require("gulp-file-include");
 const sourcemaps = require("gulp-sourcemaps");
 const csso = require("gulp-csso");
@@ -64,6 +64,7 @@ const observe = function (cb) {
     cb();
 }
 
+exports.default = series(html, styles, scripts, img);
 exports.html = html;
 exports.styles = styles;
 exports.scripts = scripts;
